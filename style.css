@@ -192,7 +192,7 @@ nav a:not(.button):hover {
   font-family: "Poppins", sans-serif;
 }
 #plainURL::placeholder {
-  color: rgb(52 49 61 / 0.5);
+  color: rgb(52, 49, 61);
 }
 #shortener button {
   background: var(--cyan);
