@@ -55,7 +55,7 @@ header,
   background: #fff;
 }
 #mainSection {
-  min-height: 800px;
+  min-height: 700px;
   /* min-height: 75.5vh; */
   display: flex;
   flex-direction: column;
