@@ -194,7 +194,7 @@ nav a:not(.button):hover {
 #shortener button {
   background: var(--cyan);
   border: none;
-  padding: 15px 30px;
+  padding: 20px 30px;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
