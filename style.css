@@ -189,6 +189,7 @@ nav a:not(.button):hover {
   font-size: 20px;
   padding: 10px;
   font-weight: 500;
+  font-family: "Poppins", sans-serif;
 }
 #shortener button {
   background: var(--cyan);
