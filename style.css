@@ -370,6 +370,9 @@ footer h3 {
   }
 }
 @media only screen and (max-width: 800px) {
+  #plainURL {
+    width: 100%;
+  }
   header .wrap {
     grid-template-areas: "logo menuIcon" "menu menu";
   }
