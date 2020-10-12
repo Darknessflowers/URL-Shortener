@@ -65,12 +65,15 @@ header,
 .left-half {
   width: 565px;
   max-width: 100%;
+  z-index: 1;
+  position: relative;
 }
 .right-half {
   width: min-content;
   position: absolute;
   right: -30px;
   top: 0;
+  max-width: 50%;
 }
 
 .left-half p {
@@ -261,13 +264,6 @@ nav a:not(.button):hover {
 #thirds .third:nth-of-type(3) {
   margin-top: 128px;
 }
-
-/* #thirds .third {
-  background: #fff;
-  border-radius: 5px;
-  padding: 0px 32px 43px 32px;
-  margin-top: 40px;
-} */
 
 #thirds .third p {
   font-size: 15px;
@@ -512,6 +508,8 @@ footer h3 {
     height: 490px;
     background: url(./images/illustration-working.svg);
     width: 100%;
+    background-repeat: no-repeat;
+    max-width: none;
   }
   .right-half img {
     display: none;
