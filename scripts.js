@@ -1,10 +1,14 @@
 let shortLinks = [];
 let shortLinksDisplayArray;
-let shortenForm = document.querySelector("#shortener form");
-let linkToShorten = document.querySelector("#shortener input");
+const shortenForm = document.querySelector("#shortener form");
+const linkToShorten = document.querySelector("#shortener input");
 const inputError = document.querySelector("form .error");
 let linkDisplay = document.querySelector('#shortLinkDisplay');
+const navIcon = document.querySelector('#openNav');
+const nav = document.querySelector('nav');
 let duplicateIndex;
+let resizeTimer;
+
 function linkExists(link) {
   return shortLinks.some(function(el) {
     if(el.link === link) {
@@ -42,7 +46,7 @@ function writeToLocalStorage() {
 
 function readFromLocalStorage() {
   const retrievedLinks = JSON.parse(localStorage.getItem('shortLinks'));
-  if(retrievedLinks.length >= 1) {
+  if(retrievedLinks !== null) {
     shortLinks = retrievedLinks;
     displayLinks();
   }
@@ -120,8 +124,19 @@ linkDisplay.addEventListener('click', function(e) {
  if(e.target.matches('.copyShort')) {
    console.log(e.target);
    e.target.innerText = 'Copied';
+   e.target.style.background = '#3A3054';
    let linkToCopy = e.target.closest('.shortLink').firstElementChild.href;
    console.log(linkToCopy);
    updateClipboard(linkToCopy);
  }
 });
+
+window.addEventListener("resize", () => {
+  document.body.classList.add("resize-animation-stopper");
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    document.body.classList.remove("resize-animation-stopper");
+  }, 400);
+});
+
+navIcon.addEventListener('click', () => nav.classList.toggle('open'));

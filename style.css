@@ -115,7 +115,9 @@ nav a {
   text-decoration: none;
   color: var(--grayish-violet);
 }
-
+nav a:not(.button):hover {
+  color: #34313d;
+}
 #about {
   background: #eff1f7;
   padding-bottom: 120px;
@@ -352,6 +354,14 @@ footer h3 {
 #advanced {
   margin-top: 74px;
 }
+#openNav {
+  display: none;
+}
+
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
 
 @media only screen and (max-width: 1100px) {
   .wrap {
@@ -359,6 +369,64 @@ footer h3 {
   }
 }
 @media only screen and (max-width: 800px) {
+  header .wrap {
+    grid-template-areas: "logo menuIcon" "menu menu";
+  }
+  #openNav {
+    cursor: pointer;
+    display: block;
+  }
+  nav {
+    margin-top: 20px;
+    grid-area: menu;
+    pointer-events: none;
+    opacity: 0;
+    background: var(--dark-violet);
+    border-radius: 10px;
+    padding: 35px 20px;
+    transition: opacity 0.2s linear;
+  }
+  header {
+    padding: 40px 0 30px 0;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+  }
+  .mainInner {
+    padding-top: 100px;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav.open {
+    pointer-events: all;
+    opacity: 1;
+  }
+  nav li {
+    width: 100%;
+  }
+  nav a {
+    width: 100%;
+    display: block;
+  }
+  li.right {
+    border-top: 1px solid rgb(158 154 168 / 0.25);
+  }
+  h1 {
+    font-size: 42px;
+    text-align: center;
+  }
+  .left-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+  .left-half p {
+    font-size: 18px;
+    text-align: center;
+  }
   .wrap {
     width: 100%;
     max-width: 100%;
@@ -382,15 +450,69 @@ footer h3 {
   #shortener {
     grid-template-columns: 1fr;
     padding: 25px;
+    padding: 0;
+    margin-top: 150px;
   }
+  #shortener form {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    background-image: url(/images/bg-shorten-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: top right;
+  }
+  #shortener button {
+    margin-top: -10px;
+    order: 3;
+  }
+  .error {
+    position: relative;
+    left: 0;
+    font-style: italic;
+    color: #f46363;
+    text-align: left;
+    margin-top: 0px;
+    margin-bottom: -10px;
+  }
+  .copyShort {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 17px;
+  }
+  .inputted .link {
+    width: 100%;
+    text-align: left;
+  }
+  .shortLink {
+    margin-left: unset;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid rgb(158 154 168 / 0.25);
+    padding: 17px;
+  }
+  #shortLinkDisplay .link {
+    padding: 17px;
+  }
+  .inputted {
+    padding: 0;
+  }
+
   .left-half {
     width: auto;
+    padding-right: 40px;
   }
   .right-half {
-    width: min-content;
     position: initial;
     right: 0;
     top: initial;
+    height: 490px;
+    background: url(./images/illustration-working.svg);
+    width: 100%;
+  }
+  .right-half img {
+    display: none;
+  }
+  .mainInner .wrap {
+    padding: 0 0 0 20px;
   }
   header .wrap {
     grid-template-columns: 1fr;
